@@ -8,13 +8,20 @@ $category_id = trim($_POST['category_id']);
 $price = trim($_POST['price']);
 
 $sql = "UPDATE `products` SET `description` = :description,`name` = :name,`category_id` = :category_id ,`price` = :price  WHERE `id` = '$id'";
-$statement = $pdo->prepare($sql);
-$result = $statement->execute([
-    'description' => $description,
-    'name' => $name,
-    'category_id' => $category_id,
-    'price' => $price,
-]);
-echo "<pre>";
-var_dump($result);
 
+
+
+if($sql){
+    $statement = $pdo->prepare($sql);
+    $result = $statement->execute([
+        'description' => $description,
+        'name' => $name,
+        'category_id' => $category_id,
+        'price' => $price,
+    ]);
+    echo('Пост обновлен');
+    echo '<a href="/№1/">На главную</a>';
+
+}else {
+    die('Не получилось обновить пост');
+}
