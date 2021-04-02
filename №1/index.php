@@ -66,6 +66,7 @@
 				        <td><? echo $dt['category_id']?></td>
 				        <td><a class="btn btn-info" href="include/single.php?id=<?= $dt['id']?>">Открыть Пост</a></td>
 				        <td><a  class="btn btn-warning" href="include/edit.php?id=<?= $dt['id']?>">Изменить Пост</a></td>
+				        <td><a  class="btn btn-danger" href="include/delete.php?id=<?= $dt['id']?>">Удалить Пост</a></td>
 			        </tr>
 			        <?
 			            endforeach;
