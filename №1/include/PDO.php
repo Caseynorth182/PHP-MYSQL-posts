@@ -8,7 +8,9 @@ define('PASS','root');
 
 try {
     $pdo = new PDO(DRIVER.':host='.HOST.'; dbname='.DB_NAME, LOGIN, PASS);
-    /*echo 'ok';*/
+    echo 'ok';
 } catch (PDOException $e){
-   /* echo "Не удалось подключиться ".$e->getMessage();*/
+    echo "Не удалось подключиться ".$e->getMessage();
 }
+
+

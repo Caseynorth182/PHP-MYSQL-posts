@@ -1,5 +1,8 @@
 <?php
-    require_once 'include/PDO.php';
+    /*require_once 'include/PDO.php';*/
+    require_once 'include/rb.php';
+    require_once 'include/RedBean_connect.php';
+
 ?>
 
 <!doctype html>
@@ -55,10 +58,14 @@
 				        <th>Category</th>
 			        </tr>
 			        <?
-			            $data_base = $pdo->query('SELECT * FROM products');
-			            $data = $data_base->fetchAll(PDO::FETCH_ASSOC);
+			            $users = R::find('products');
 
-			            foreach ($data as $dt):
+
+
+			            foreach ($users as $dt):
+                            /*echo  "<pre>";
+                            print_r($dt);
+                            echo  "</pre>";*/
 			        ?>
 			        <tr>
 				        <td><? echo $dt['id']?></td>

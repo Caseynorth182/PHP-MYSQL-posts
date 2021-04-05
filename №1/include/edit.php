@@ -1,10 +1,19 @@
 <?php
 
-require_once 'PDO.php';
+/*require_once 'PDO.php';*/
+require_once 'rb.php';
+require_once 'RedBean_connect.php';
+
+
 $id = $_GET['id'];
 
-$sql = $pdo->query("SELECT * FROM `products` WHERE `id` = '$id'");
-$post = $sql->fetch(PDO::FETCH_ASSOC);
+//PDO
+
+/*$sql = $pdo->query("SELECT * FROM `products` WHERE `id` = '$id'");
+$post = $sql->fetch(PDO::FETCH_ASSOC);*/
+
+//RedBean
+$post = R::load('products', $id);
 
 ?>
 <!doctype html>
@@ -42,7 +51,7 @@ $post = $sql->fetch(PDO::FETCH_ASSOC);
 			<form action="update.php"
 			      method="POST">
 				<div class="mb-3">
-					<!--//скрытый пост ID-->
+					<!--//скрытый пост ID для того что бы его потом получить в POST[id]-->
 
 					<input type="hidden"
 					       name="id"
